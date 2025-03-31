@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% if partida %}Editar{% else %}Nova{% endif %} Partida (MongoDB)</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+</head>
+<body class="container mt-5">
+    <h2>{% if partida %}Editar{% else %}Nova{% endif %} Partida (MongoDB)</h2>
+    <form method="post" action="{% if partida %}/partidas_mongo/editar/{{ partida._id }}{% else %}/partidas_mongo/novo{% endif %}">
+        <div class="mb-3">
+            <label>Código</label>
+            <input type="text" name="codigo" class="form-control" value="{{ partida.codigo if partida else '' }}" required>
+        </div>
+        <div class="mb-3">
+            <label>Data</label>
+            <input type="date" name="data" class="form-control" value="{{ partida.data if partida else '' }}" required>
+        </div>
+        <div class="mb-3">
+            <label>Horário</label>
+            <input type="time" name="horario" class="form-control" value="{{ partida.horario if partida else '' }}" required>
+        </div>
+        <div class="mb-3">
+            <label>Estádio</label>
+            <select name="estadio_nome" class="form-control" required>
+                {% for estadio in estadios %}
+                    <option value="{{ estadio.nome }}" {% if partida and partida.estadio_nome == estadio.nome %}selected{% endif %}>
+                        {{ estadio.nome }}
+                    </option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="mb-3">
+            <label>Time da Casa</label>
+            <select name="time_casa_nome" class="form-control" required>
+                {% for time in times %}
+                    <option value="{{ time.nome_time }}" {% if partida and partida.time_casa_nome == time.nome_time %}selected{% endif %}>
+                        {{ time.nome_time }}
+                    </option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="mb-3">
+            <label>Time Visitante</label>
+            <select name="time_visitante_nome" class="form-control" required>
+                {% for time in times %}
+                    <option value="{{ time.nome_time }}" {% if partida and partida.time_visitante_nome == time.nome_time %}selected{% endif %}>
+                        {{ time.nome_time }}
+                    </option>
+                {% endfor %}
+            </select>
+        </div>
+        <button type="submit" class="btn btn-success">Salvar</button>
+        <a href="/partidas_mongo" class="btn btn-secondary">Cancelar</a>
+    </form>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Estádios</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+</head>
+<body class="container mt-5">
+    <h2>Estádios</h2>
+    <a href="/estadios/novo" class="btn btn-primary mb-3">Novo Estádio</a>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Localização</th>
+                <th>Capacidade</th>
+                <th>Tipo de Gramado</th>
+                <th>Patrocinadores</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for estadio in estadios %}
+            <tr>
+                <td>{{ estadio.id }}</td>
+                <td>{{ estadio.nome }}</td>
+                <td>{{ estadio.localizacao }}</td>
+                <td>{{ estadio.capacidade }}</td>
+                <td>{{ estadio.tipo_de_gramado }}</td>
+                <td>{{ estadio.patrocinadores }}</td>
+                <td>
+                    <a href="/estadios/editar/{{ estadio.id }}" class="btn btn-warning btn-sm">Editar</a>
+                    <a href="/estadios/deletar/{{ estadio.id }}" class="btn btn-danger btn-sm">Excluir</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="/" class="btn btn-outline-dark mt-3">Voltar ao Início</a>
+</body>
+</html>

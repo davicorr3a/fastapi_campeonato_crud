@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% if estadio %}Editar{% else %}Novo{% endif %} Estádio (MongoDB)</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+</head>
+<body class="container mt-5">
+    <h2>{% if estadio %}Editar{% else %}Novo{% endif %} Estádio (MongoDB)</h2>
+    <form method="post" action="{% if estadio %}/estadios_mongo/editar/{{ estadio._id }}{% else %}/estadios_mongo/novo{% endif %}">
+        <div class="mb-3">
+            <label>Nome</label>
+            <input type="text" name="nome" class="form-control" value="{{ estadio.nome if estadio else '' }}" required>
+        </div>
+        <div class="mb-3">
+            <label>Localização</label>
+            <input type="text" name="localizacao" class="form-control" value="{{ estadio.localizacao if estadio else '' }}" required>
+        </div>
+        <div class="mb-3">
+            <label>Capacidade</label>
+            <input type="number" name="capacidade" class="form-control" value="{{ estadio.capacidade if estadio else '' }}" required>
+        </div>
+        <div class="mb-3">
+            <label>Tipo de Gramado</label>
+            <input type="text" name="tipo_de_gramado" class="form-control" value="{{ estadio.tipo_de_gramado if estadio else '' }}" required>
+        </div>
+        <div class="mb-3">
+            <label>Patrocinadores</label>
+            <textarea name="patrocinadores" class="form-control">{{ estadio.patrocinadores if estadio else '' }}</textarea>
+        </div>
+        <button type="submit" class="btn btn-success">Salvar</button>
+        <a href="/estadios_mongo" class="btn btn-secondary">Cancelar</a>
+    </form>
+</body>
+</html>

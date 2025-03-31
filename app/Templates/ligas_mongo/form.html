@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% if liga %}Editar{% else %}Nova{% endif %} Liga (MongoDB)</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+</head>
+<body class="container mt-5">
+    <h2>{% if liga %}Editar{% else %}Nova{% endif %} Liga (MongoDB)</h2>
+    <form method="post" action="{% if liga %}/ligas_mongo/editar/{{ liga._id }}{% else %}/ligas_mongo/novo{% endif %}">
+        <div class="mb-3">
+            <label>Nome</label>
+            <input type="text" name="nome" class="form-control" value="{{ liga.nome if liga else '' }}" required>
+        </div>
+        <div class="mb-3">
+            <label>Divisão</label>
+            <input type="text" name="divisao" class="form-control" value="{{ liga.divisao if liga else '' }}" required>
+        </div>
+        <button type="submit" class="btn btn-success">Salvar</button>
+        <a href="/ligas_mongo" class="btn btn-secondary">Cancelar</a>
+    </form>
+</body>
+</html>
