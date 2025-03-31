@@ -92,8 +92,8 @@ Esses recursos podem ajudar a entender melhor os conceitos e ferramentas usadas 
 
 ## Conclusão
 
-Esse projeto proporcionou uma experiência prática rica em conceitos de Banco de Dados, integração com APIs, e desenvolvimento de uma interface funcional para o usuário final.
+Esse projeto proporcionou uma experiência prática em conceitos de Banco de Dados, integração com APIs, e desenvolvimento de uma interface funcional para o usuário final.
 
 ---
 
-Se desejar contribuir ou melhorar este projeto, fique à vontade para abrir um PR! 🚀
+Se desejar contribuir ou melhorar este projeto, fique à vontade para abrir um PR.
