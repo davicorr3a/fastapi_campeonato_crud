@@ -4,8 +4,8 @@ from pymongo import MongoClient
 # Conexão básica com MongoDB local
 
 def conectar_mongo():
-    client = MongoClient("mongodb+srv://admin:CampeonatoDB123@campeonatodb.omg7d8b.mongodb.net/?retryWrites=true&w=majority&appName=CampeonatoDB")
-    db = client["CampeonatoDB"]
+    client = MongoClient("connectionString")
+    db = client["Client"]
     return db
 
 # ------------------- CRUD LIGA -------------------
