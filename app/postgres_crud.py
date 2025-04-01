@@ -4,11 +4,11 @@ from psycopg2.extras import RealDictCursor
 
 def conectar_pg():
     return psycopg2.connect(
-        host="trabalhopratico-matheus-davi.ct6iak2ycizq.us-east-1.rds.amazonaws.com",      
-        port=5432,
-        database="postgres",
-        user="professor",
-        password="professor"
+        host="seuhost",      
+        port=porta,
+        database="database",
+        user="user",
+        password="password"
     )
 
 # ------------------- CRUD LIGA -------------------
